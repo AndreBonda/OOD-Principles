@@ -5,9 +5,9 @@ class Gear {
     // Ingranaggio posteriore
     public int Cog { get; init; }
 
-    public IWheel? Wheel { get; set; }
+    public IWheel Wheel { get; set; }
 
-    public Gear(int chainring, int cog, IWheel? wheel = null)
+    public Gear(int chainring, int cog, IWheel wheel = null)
     {
         Chainring = chainring;
         Cog = cog;
