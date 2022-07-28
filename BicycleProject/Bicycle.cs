@@ -1,4 +1,5 @@
-abstract class Bicycle {
+abstract class Bicycle : IBicycle, ISchedulable
+{
     public string Size { get; init; }
     public string Chain { get; set; }
     public float TireSize { get; set; }
@@ -10,6 +11,18 @@ abstract class Bicycle {
         Size = size;
         Chain = chain;
         TireSize = tireSize;
+    }
+
+    public int LeadDays()
+    {
+        return 1;
+    }
+
+    public bool IsSchedulable(DateTime starting, DateTime ending)
+    {
+        return !Scheduler
+            .GetInstance()
+            .IsScheduled(this, starting.AddDays(this.LeadDays()), ending);
     }
 
     public abstract SpareParts Spares();

@@ -1,0 +1,3 @@
+interface IBicycle {
+    SpareParts Spares();
+}
