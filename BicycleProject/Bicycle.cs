@@ -3,6 +3,7 @@ abstract class Bicycle : IBicycle, ISchedulable
     public string Size { get; init; }
     public string Chain { get; set; }
     public float TireSize { get; set; }
+    public SpareParts SpareParts { get; set; }
 
     protected const string _DEFAULT_CHAIN = "11-speed";
 
@@ -25,5 +26,7 @@ abstract class Bicycle : IBicycle, ISchedulable
             .IsScheduled(this, starting.AddDays(this.LeadDays()), ending);
     }
 
-    public abstract SpareParts Spares();
+    public SpareParts Spares() {
+        return SpareParts;
+    }
 }

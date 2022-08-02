@@ -9,6 +9,7 @@ class MountainBike : Bicycle
     {
         RearShock = rearShock;
         FrontShock = frontShock;
+        SpareParts = new MountainSpareParts(Chain, TireSize, RearShock, FrontShock);
     }
 
     public MountainBike(string size, string rearShock, string frontShock, string chain) : this(size, rearShock, frontShock, chain, _DEFAULT_TIRE_SIZE)
@@ -21,10 +22,5 @@ class MountainBike : Bicycle
 
     public MountainBike(string size, string rearShock, string frontShock) : this(size, rearShock, frontShock, _DEFAULT_CHAIN, _DEFAULT_TIRE_SIZE)
     {
-    }
-
-    public override MountainSpareParts Spares()
-    {
-        return new MountainSpareParts(Chain, TireSize, RearShock, FrontShock);
     }
 }
